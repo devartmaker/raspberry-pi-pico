@@ -10,7 +10,7 @@ class HCSR04:
 
     """
     # echo_timeout_us is based in chip range limit (400cm)
-    def __init__(self, trigger_pin: int, echo_pin: int, echo_timeout_us=500*2*30):
+    def __init__(self, trigger_pin: int, echo_pin: int, echo_timeout_us=30000):
         """
         trigger_pin: Output pin to send pulses
         echo_pin: Readonly pin to measure the distance. The pin should be protected with 1k resistor
