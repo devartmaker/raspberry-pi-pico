@@ -5,6 +5,7 @@ from utime import sleep
 i2c = I2C(0, sda=Pin(16), scl=Pin(17), freq=400000)
 lcd = LCD(i2c, 0x3f, 2, 16)
 
+# https://maxpromer.github.io/LCD-Character-Creator/
 customChar = [
   0x1F,
   0x05,
