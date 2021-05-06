@@ -2,7 +2,7 @@ from machine import Pin
 from sound import DFPlayer
 from utime import sleep
 
-df = DFPlayer(0, Pin(0), Pin(1), volume=50)
+df = DFPlayer(0, txPin=Pin(12), rxPin=Pin(13), volume=50)
 while True:
     df.SetVolume(60)
     df.PlayNext()
