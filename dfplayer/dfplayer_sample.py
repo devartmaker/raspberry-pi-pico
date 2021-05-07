@@ -9,5 +9,5 @@ while True:
     sleep(3)
     df.Stop()
     sleep(1)
-    df.PlayFolder(1)
+    df.PlaySpecific(1) # play mp3/0001.mp3
     sleep(2)
