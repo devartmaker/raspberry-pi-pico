@@ -9,8 +9,8 @@ class Servo:
     current_angle = 0.001
     
     
-    def __init__(self, pin: int):
-        self.__initialise(pin)
+    def __init__(self, pwm_pin: int):
+        self.__initialise(pwm_pin)
         
         
     def update_settings(self, servo_pwm_freq, min_u16_duty, max_u16_duty, min_angle, max_angle, pin):
