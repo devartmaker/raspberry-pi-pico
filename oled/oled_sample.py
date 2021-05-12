@@ -1,3 +1,8 @@
+'''
+Simple tool to change images into byte.
+https://javl.github.io/image2cpp/
+'''
+
 import framebuf
 from machine import Pin, I2C
 from ssd1306 import SSD1306_I2C
