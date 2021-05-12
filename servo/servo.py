@@ -9,7 +9,7 @@ class Servo:
     current_angle = 0.001
     
     
-    def __init__(self, pin):
+    def __init__(self, pin: int):
         self.__initialise(pin)
         
         
@@ -22,9 +22,9 @@ class Servo:
         self.__initialise(pin)
         
         
-    def move(self, angle):
+    def move(self, degree: float):
         # round to 2 decimal places, so we have a chance of reducing unwanted servo adjustments
-        angle = round(angle, 2)
+        angle = round(degree, 2)
         # do we need to move?
         if angle == self.current_angle:
             return
