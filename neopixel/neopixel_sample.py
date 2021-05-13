@@ -1,8 +1,7 @@
 from utime import sleep
 from neopixel import Neopixel
 
-pixels = Neopixel(10, 0, 16, "RGB")
-
+pixels = Neopixel(10, 0, 16, "GRB")
 
 while True:
     pixels.fill((0, 0, 0))
@@ -20,7 +19,7 @@ while True:
     pixels.set_pixel_line(3, 9, (255, 0, 255))
     pixels.show()
     sleep(1)
-    pixels.set_pixel_line_gradient(0, 9, (0, 255, 0), (0, 0, 255))
+    pixels.set_pixel_line_gradient(0, 9, (255, 0, 0), (0, 0, 255))
     pixels.show()
     sleep(1)
     for i in range(20):
