@@ -4,13 +4,13 @@ class Servo:
     __servo_pwm_freq = 50
     __min_u16_duty = 1640 + 400 # offset for correction
     __max_u16_duty = 7864 - 35  # offset for correction
-    min_angle = -90
-    max_angle = 90    
+    min_angle = 0
+    max_angle = 180    
     current_angle = 0.001
     
     
-    def __init__(self, pwm_pin: int):
-        self.__initialise(pwm_pin)
+    def __init__(self, pin):
+        self.__initialise(pin)
         
         
     def update_settings(self, servo_pwm_freq, min_u16_duty, max_u16_duty, min_angle, max_angle, pin):
@@ -22,9 +22,9 @@ class Servo:
         self.__initialise(pin)
         
         
-    def move(self, degree: float):
+    def move(self, angle):
         # round to 2 decimal places, so we have a chance of reducing unwanted servo adjustments
-        angle = round(degree, 2)
+        angle = round(angle, 2)
         # do we need to move?
         if angle == self.current_angle:
             return

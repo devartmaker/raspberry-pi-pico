@@ -1,7 +1,7 @@
 from utime import sleep
 from servo import Servo
 
-motor = Servo(26)
+motor = Servo(15)
 
 while True:
     motor.move(0)
