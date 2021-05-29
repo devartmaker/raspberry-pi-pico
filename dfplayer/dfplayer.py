@@ -125,8 +125,12 @@ class DFPlayer :
         self._txCmd(0x0E)
 
 
-    def PlaySpecificInFolder(self, folderIndex, trackIndex) :
+    def PlayFolder(self, folderIndex, trackIndex) :
         self._txCmd(0x0F, trackIndex, folderIndex)
+
+
+    def PlayLargeFolder(self, folderIndex, trackIndex) :
+        self._txCmd(0x14, trackIndex << 12 | folderIndex)
 
 
     def EnableLoopAll(self) :
@@ -137,8 +141,8 @@ class DFPlayer :
         self._txCmd(0x11, 0)
 
 
-    def PlayFolder(self, folderIndex) :
-        self._txCmd(0x12, folderIndex)
+    def PlayMp3Folder(self, trackIndex) :
+        self._txCmd(0x12, trackIndex)
 
 
     def Stop(self) :
