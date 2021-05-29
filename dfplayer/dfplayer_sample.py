@@ -2,10 +2,10 @@ from machine import Pin
 from dfplayer import DFPlayer
 from utime import sleep
 
-df = DFPlayer(0, txPin=Pin(16), rxPin=Pin(17), volume=50)
+df = DFPlayer(0, txPin=Pin(16), rxPin=Pin(17))
+df.SetVolume(60)
 
 while True:
-    df.SetVolume(60)
     df.PlayNext()
     sleep(3)
     df.Stop()

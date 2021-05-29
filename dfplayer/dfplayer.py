@@ -1,3 +1,4 @@
+from utime import sleep
 from machine import UART, Pin
 from utime   import sleep_ms
 from ustruct import unpack
@@ -19,13 +20,10 @@ class DFPlayer :
     def __init__( self,
                   uartBus,
                   txPin: Pin,
-                  rxPin: Pin,
-                  volume    = 70) :
+                  rxPin: Pin) :
 
         self._uart = UART(uartBus, baudrate = 9600, tx=txPin, rx=rxPin)
-        
-        self.SetVolume(volume)
-
+        sleep(1)
 
     def _txCmd(self, cmd, dataL=0, dataH=0) :
         self._uart.write(b'\x7E')        # Start
