@@ -97,24 +97,27 @@ tones = {
     "DS8": 4978
 }
 
-song = ["E5","G5","A5","P","E5","G5","B5","A5","P","E5","G5","A5","P","G5","E5"]
+notes = ["G5","G5","F5","G5","G5","F5","G5","G5","F5","G5","A5","G5","P","C6","C6","A5","G5","F5"]
+duration = [8, 16, 16, 8, 16, 16, 8, 16, 16, 8, 8, 4, 8, 8, 8, 8, 8, 8]
 
-def playtone(frequency):
+def tone(frequency):
     buzzer.duty_u16(1000)
     buzzer.freq(frequency)
 
-def bequiet():
+def noTone():
     buzzer.duty_u16(0)
 
-def playsong(mysong):
-    for i in range(len(mysong)):
-        if (mysong[i] == "P"):
-            bequiet()
+def play_song(song, duration):
+    for i, note in enumerate(song):
+        if (note == "P"):
+            noTone()
         else:
-            playtone(tones[mysong[i]])
-        sleep(0.3)
-    bequiet()
+            tone(tones[note])
+        t = 1 / duration[i] * 2
+        sleep(t)
+        noTone()
+        sleep(t * 0.1)
+    noTone()
 
 while True:
-    playsong(song)
-    sleep(1)
+    play_song(notes, duration)
